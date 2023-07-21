@@ -1,4 +1,4 @@
-# IonQ Quantum Framework Examples
+# IonQ Framework Examples
 
 This repository contains examples of using different quantum frameworks with IonQ quantum computers. IonQ is a pioneer in the world of trapped ion quantum computing and these examples aim to help you get started with using the different quantum frameworks on IonQ computers.
 
