@@ -1,4 +1,9 @@
 qiskit
 qiskit_ionq
+cirq
+cirq_ionq
+pennylane
+pennylane-ionq
+projectq
 matplotlib
 pylatexenc
