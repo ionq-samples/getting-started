@@ -9,7 +9,7 @@ RUN pip3 install jupyter
 
 # Add your main.ipynb file to the /workspace directory of the container.
 # Make sure this Dockerfile and your main.ipynb file are in the same directory on your local machine
-COPY main.ipynb /workspace/
+COPY main.ipynb /workspace
 
 # Make the workspace directory as the working directory
 WORKDIR /workspace
