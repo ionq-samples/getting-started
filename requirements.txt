@@ -7,3 +7,4 @@ pennylane-ionq
 projectq
 matplotlib
 pylatexenc
+jupyter
