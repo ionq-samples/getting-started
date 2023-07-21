@@ -1,4 +1,4 @@
-# Cuda Quantum
+# CUDA Quantum
 
 First build and run the Dockerfile:
 

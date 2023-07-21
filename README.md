@@ -1,11 +1,45 @@
-# Getting Started with IonQ
-This repository contains a variety of resources to help you get up and running on IonQ. In here, you'll find getting started guides, links, documentation, and more advanced examples for many popular quantum frameworks.
+# IonQ Quantum Framework Examples
 
-## API Docs
-If you're looking for documentation for IonQ's APIs, they can be found at [https://docs.ionq.com](https://docs.ionq.com).
+This repository contains examples of using different quantum frameworks with IonQ quantum computers. IonQ is a pioneer in the world of trapped ion quantum computing and these examples aim to help you get started with using the different quantum frameworks on IonQ computers.
 
-## Using the guides
-In each framework folder, you'll find a link to `Open in Colab`. Colab is a tool from Google is a Jupyter-like notebook tool that allows you to tinker with and run interactive examples. Simply follow the setup instructions in each notebook included at the top.
+We provide examples using several popular quantum computing frameworks:
+- [Qiskit](https://qiskit.org/)
+- [Cirq](https://quantumai.google/cirq)
+- [CUDA Quantum](https://developer.nvidia.com/cuda-quantum)
+- [ProjectQ](https://projectq.ch/)
+- [PennyLane](https://pennylane.ai/)
 
-## Contributing & Support
-Everyone can contribute! If you spot an error, have a correction, or would like to add additional frameworks or new resources, feel free to [open a PR](https://github.com/ionq-samples/getting-started/compare) or [Submit an Issue](https://github.com/ionq-samples/getting-started/issues/new/choose)! Please tag @splch or @mocha in the PR to make sure we see it. Additionally, if something isn't working as expected, please create an [Issue](https://github.com/ionq-samples/getting-started/issues/new) or email our [support](mailto:support@ionq.com?subject=SDK%20help).
+Each directory contains a README and a Jupyter notebook (`main.ipynb`) detailing how to implement and run a simple quantum circuit using that specific framework. Additionally, a `requirements.txt` file is present in the root directory containing the necessary dependencies for these examples.
+
+## Setup
+
+Python 3.11 or later is required to run the examples in this repository. To install all necessary dependencies, run the following command in your terminal:
+
+```bash
+pip install -r requirements.txt
+```
+
+## How to use
+
+You can choose to run these examples in Google Colab or locally on your machine.
+
+To run in Google Colab, navigate to the specific framework directory and click on the ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) badge.
+
+To run the examples locally, follow these steps:
+
+1. Clone this repository: `git clone https://github.com/ionq-samples/getting-started.git`
+2. Navigate to the directory of the framework you wish to explore: `cd getting-started/<framework>`
+3. Open the Jupyter notebook: `jupyter notebook main.ipynb`
+
+Additional instructions and comments can be found in the README file within each framework directory.
+
+## Contribution and Support
+
+All contributions are welcome! Feel free to propose changes, report bugs, or suggest improvements by creating issues or providing pull requests.
+
+If you need assistance or encounter any problems, you can:
+
+- Create an [issue](https://github.com/ionq-samples/getting-started/issues/new) and tag @splch or @mocha
+- Or email [support](mailto:support@ionq.com?subject=SDK%20help)
+
+We appreciate your interest in this project and look forward to your contributions and questions.
