@@ -1,45 +1,43 @@
-# IonQ Framework Examples
+# IonQ Quantum Computing Samples
 
-This repository contains examples of using different quantum frameworks with IonQ quantum computers. IonQ is a pioneer in the world of trapped ion quantum computing and these examples aim to help you get started with using the different quantum frameworks on IonQ computers.
+Welcome to the IonQ Quantum Computing Samples repository! This repository provides examples of using different quantum programming frameworks with IonQ quantum computers.
 
-We provide examples using several popular quantum computing frameworks:
-- [Qiskit](https://qiskit.org/)
-- [Cirq](https://quantumai.google/cirq)
-- [CUDA Quantum](https://developer.nvidia.com/cuda-quantum)
-- [ProjectQ](https://projectq.ch/)
-- [PennyLane](https://pennylane.ai/)
+The code samples are presented in the form of Jupyter notebooks, which are interactive documents that contain live code, equations, visualizations, and narrative text.
 
-Each directory contains a README and a Jupyter notebook (`main.ipynb`) detailing how to implement and run a simple quantum circuit using that specific framework. Additionally, a `requirements.txt` file is present in the root directory containing the necessary dependencies for these examples.
+## Content
 
-## Setup
+Here are the included samples:
 
-Python 3.11 or later is required to run the examples in this repository. To install all necessary dependencies, run the following command in your terminal:
+- [Cirq](./cirq/README.md): A Python library for writing, manipulating, and optimizing quantum circuits at the level of individual quantum bits and quantum gates.
 
-```bash
+- [CUDA Quantum](./cuda-quantum/README.md): An example using Nvidia's CUDA Quantum.
+
+- [PennyLane](./pennylane/README.md): A Python library for differentiable programming of quantum computers. Train a quantum computer the same way as a neural network!
+
+- [ProjectQ](./projectq/README.md): An open-source software framework for quantum computing.
+
+- [Qiskit](./qiskit/README.md): IBM's open-source quantum computing software development kit (SDK).
+
+## Requirements
+
+In order to run these samples, you'll need to install several Python libraries. You can do so by running:
+
+```shell
 pip install -r requirements.txt
 ```
 
-## How to use
+Most importantly, you'll need an IonQ API key to run computations on IonQ quantum computers. You can obtain it from <https://cloud.ionq.com/settings/keys>.
 
-You can choose to run these examples in Google Colab or locally on your machine.
+## Usage
 
-To run in Google Colab, navigate to the specific framework directory and click on the ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) badge.
+Each sample has its own `README.md` file explaining how to use it. In general, you can start Jupyter notebook by running:
 
-To run the examples locally, follow these steps:
+```shell
+jupyter notebook
+```
 
-1. Clone this repository: `git clone https://github.com/ionq-samples/getting-started.git`
-2. Navigate to the directory of the framework you wish to explore: `cd getting-started/<framework>`
-3. Open the Jupyter notebook: `jupyter notebook main.ipynb`
+Then, navigate to the corresponding notebook file (`.ipynb`) and run the cells.
 
-Additional instructions and comments can be found in the README file within each framework directory.
+## Contact
 
-## Contribution and Support
-
-All contributions are welcome! Feel free to propose changes, report bugs, or suggest improvements by creating issues or providing pull requests.
-
-If you need assistance or encounter any problems, you can:
-
-- Create an [issue](https://github.com/ionq-samples/getting-started/issues/new) and tag @splch or @mocha
-- Or email [support](mailto:support@ionq.com?subject=SDK%20help)
-
-We appreciate your interest in this project and look forward to your contributions and questions.
+If you have any questions, feel free to open an issue or reach out to [support](mailto:support@ionq.com?subject=SDK%20help).
