@@ -4,14 +4,23 @@ FROM --platform=linux/amd64 ghcr.io/nvidia/cuda-quantum:latest
 # Update PATH environment variable
 ENV PATH=$PATH:/home/cudaq/.local/bin/
 
-# Install Jupyter
-RUN pip3 install jupyter
-
-# Add your main.ipynb file to the workspace/ directory of the container.
-COPY main.ipynb /workspace/
-
 # Make the workspace directory as the working directory
 WORKDIR /workspace/
+
+# Change to the root user
+USER root
+
+# Change the permissions of the /workspace/ directory
+RUN chmod 777 .
+
+# Change to the cudaq user
+USER cudaq
+
+# Install Jupyter
+RUN pip install jupyter
+
+# Add your main.ipynb file to the workspace/ directory of the container.
+COPY main.ipynb .
 
 # When the container is run, start the Jupyter notebook server
 ENTRYPOINT ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--NotebookApp.token=''"]
