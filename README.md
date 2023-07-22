@@ -1,43 +1,57 @@
 # IonQ Quantum Computing Samples
 
-Welcome to the IonQ Quantum Computing Samples repository! This repository provides examples of using different quantum programming frameworks with IonQ quantum computers.
+Welcome to the IonQ Quantum Computing Samples repository! This repository is your guide to exploring quantum computing using the IonQ platform with different quantum programming frameworks. These samples will introduce you to writing, manipulating, and executing quantum circuits with IonQ quantum computers.
 
-The code samples are presented in the form of Jupyter notebooks, which are interactive documents that contain live code, equations, visualizations, and narrative text.
+## What's Inside?
 
-## Content
+This repository contains a range of examples demonstrating the use of various quantum computing frameworks on IonQ's platform. Each sub-directory holds an illustrative example for a specific framework, each set up to run a Bell State preparation circuit. The frameworks currently included are:
 
-Here are the included samples:
+1. **Cirq**
+2. **CUDA Quantum**
+3. **PennyLane**
+4. **ProjectQ**
+5. **Qiskit**
 
-- [Cirq](./cirq/README.md): A Python library for writing, manipulating, and optimizing quantum circuits at the level of individual quantum bits and quantum gates.
+Each example includes a `main.ipynb` Jupyter notebook file that demonstrates the use of the respective framework to create and execute a quantum circuit. 
 
-- [CUDA Quantum](./cuda-quantum/README.md): An example using Nvidia's CUDA Quantum.
+## Prerequisites
 
-- [PennyLane](./pennylane/README.md): A Python library for differentiable programming of quantum computers. Train a quantum computer the same way as a neural network!
+To use these samples, you will need:
 
-- [ProjectQ](./projectq/README.md): An open-source software framework for quantum computing.
+- Python installed on your machine. 
+- An API key from IonQ. This can be obtained from <https://cloud.ionq.com/settings/keys>.
+- The Python libraries mentioned in the `requirements.txt` file.
 
-- [Qiskit](./qiskit/README.md): IBM's open-source quantum computing software development kit (SDK).
-
-## Requirements
-
-In order to run these samples, you'll need to install several Python libraries. You can do so by running:
+To install the required Python libraries, navigate to the main directory of this repository and run the following command:
 
 ```shell
 pip install -r requirements.txt
 ```
 
-Most importantly, you'll need an IonQ API key to run computations on IonQ quantum computers. You can obtain it from <https://cloud.ionq.com/settings/keys> and set it by running `export IONQ_API_KEY=your_api_key_here`.
+Remember to set your IonQ API key as an environment variable:
 
-## Usage
+```shell
+export IONQ_API_KEY=your_api_key_here
+```
 
-Each sample has its own `README.md` file explaining how to use it. In general, you can start Jupyter notebook by running:
+## How To Use
+
+Each sample has its own `README.md` file explaining how to use it. However, the general steps are as follows:
+
+1. Navigate to the specific framework's directory.
+2. Open the `main.ipynb` Jupyter notebook.
+3. Run the cells in the notebook. This will install the necessary packages, set up a connection to the IonQ service using your API key, create a quantum circuit, and execute the circuit.
+
+You can run Jupyter notebook by typing the following command in your terminal:
 
 ```shell
 jupyter notebook
 ```
 
-Then, navigate to the corresponding notebook file (`.ipynb`) and run the cells.
+Then, navigate to the corresponding notebook file (`.ipynb`) in your browser and execute the cells.
 
-## Contact
+You can also run the notebooks directly in your browser using Google Colab. Each `README.md` in the subdirectories has an "Open in Colab" badge. Clicking on it will open the notebook in Google Colab.
 
-If you have any questions, feel free to open an issue or reach out to [support](mailto:support@ionq.com?subject=SDK%20help).
+## Contact Us
+
+If you have any questions, issues, or other feedback about these samples, feel free to submit an issue or pull request on this repository, or reach out to us directly at [support@ionq.com](mailto:support@ionq.com?subject=SDK%20help).
