@@ -26,7 +26,7 @@ In order to run these samples, you'll need to install several Python libraries. 
 pip install -r requirements.txt
 ```
 
-Most importantly, you'll need an IonQ API key to run computations on IonQ quantum computers. You can obtain it from <https://cloud.ionq.com/settings/keys>.
+Most importantly, you'll need an IonQ API key to run computations on IonQ quantum computers. You can obtain it from <https://cloud.ionq.com/settings/keys> and set it by running `export IONQ_API_KEY=your_api_key_here`.
 
 ## Usage
 
