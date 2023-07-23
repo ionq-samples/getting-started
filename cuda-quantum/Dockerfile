@@ -1,7 +1,7 @@
 # We start from a minimal Python 3.11 image
 FROM --platform=linux/x86_64 python:3.11
 
-# Install Jupyter
+# Install Jupyter and CUDA Quantum
 RUN pip install jupyter cuda-quantum
 
 # Copy the main.ipynb file into the container
