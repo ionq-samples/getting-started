@@ -1,5 +1,5 @@
 # We start from a minimal Python 3.11 image
-FROM --platform=x86_64 python:3.11
+FROM --platform=linux/x86_64 python:3.11
 
 # Install Jupyter
 RUN pip install jupyter cuda-quantum
