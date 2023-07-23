@@ -1,5 +1,9 @@
 # CUDA Quantum
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ionq-samples/getting-started/blob/main/cuda-quantum/main.ipynb)
+
+---
+
 If `pip install cuda-quantum` fails, build and run the Dockerfile:
 
 ```shell
