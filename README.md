@@ -1,57 +1,41 @@
 # IonQ Quantum Computing Samples
 
-Welcome to the IonQ Quantum Computing Samples repository! This repository is your guide to exploring quantum computing using the IonQ platform with different quantum programming frameworks. These samples will introduce you to writing, manipulating, and executing quantum circuits with IonQ quantum computers.
+Welcome! This repository will guide you on using the IonQ platform with various quantum computing frameworks.
 
-## What's Inside?
+## Setup
 
-This repository contains a range of examples demonstrating the use of various quantum computing frameworks on IonQ's platform. Each sub-directory holds an illustrative example for a specific framework, each set up to run a Bell State preparation circuit. The frameworks currently included are:
+Ensure the following:
 
-1. **Cirq**
-2. **CUDA Quantum**
-3. **PennyLane**
-4. **ProjectQ**
-5. **Qiskit**
+- Python is installed.
+- An IonQ API key is obtained from [here](https://cloud.ionq.com/settings/keys).
+- Python libraries are installed from `requirements.txt`.
 
-Each example includes a `main.ipynb` Jupyter notebook file that demonstrates the use of the respective framework to create and execute a quantum circuit. 
-
-## Prerequisites
-
-To use these samples, you will need:
-
-- Python installed on your machine. 
-- An API key from IonQ. This can be obtained from <https://cloud.ionq.com/settings/keys>.
-- The Python libraries mentioned in the `requirements.txt` file.
-
-To install the required Python libraries, navigate to the main directory of this repository and run the following command:
+Install libraries by running:
 
 ```shell
 pip install -r requirements.txt
 ```
 
-Remember to set your IonQ API key as an environment variable:
+Set the IonQ API key:
 
 ```shell
 export IONQ_API_KEY=your_api_key_here
 ```
 
-## How To Use
+## Running Notebooks
 
-Each sample has its own `README.md` file explaining how to use it. However, the general steps are as follows:
+Use Google Colab or Jupyter notebooks.
 
-1. Navigate to the specific framework's directory.
-2. Open the `main.ipynb` Jupyter notebook.
-3. Run the cells in the notebook. This will install the necessary packages, set up a connection to the IonQ service using your API key, create a quantum circuit, and execute the circuit.
+For Colab, open a notebook using ![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg) badge in each subdirectory's `README.md`.
 
-You can run Jupyter notebook by typing the following command in your terminal:
+For Jupyter notebooks:
 
 ```shell
 jupyter notebook
 ```
 
-Then, navigate to the corresponding notebook file (`.ipynb`) in your browser and execute the cells.
+Open and execute the `.ipynb` file.
 
-You can also run the notebooks directly in your browser using Google Colab. Each `README.md` in the subdirectories has an "Open in Colab" badge. Clicking on it will open the notebook in Google Colab.
+## Support
 
-## Contact Us
-
-If you have any questions, issues, or other feedback about these samples, feel free to submit an issue or pull request on this repository, or reach out to us directly at [support@ionq.com](mailto:support@ionq.com?subject=SDK%20help).
+Submit issues or PRs in this repository, or contact us at [support@ionq.com](mailto:support@ionq.com?subject=SDK%20help) for help.
