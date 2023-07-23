@@ -5,6 +5,7 @@ cirq_ionq
 pennylane
 pennylane-ionq
 projectq
+cuda-quantum
 matplotlib
 pylatexenc
 jupyter
