@@ -1,6 +1,6 @@
 # CUDA Quantum
 
-First build and run the Dockerfile:
+If `pip install cuda-quantum` fails, build and run the Dockerfile:
 
 ```shell
 docker build -t cuda-quantum -f Dockerfile . && docker run -p 8888:8888 -it cuda-quantum

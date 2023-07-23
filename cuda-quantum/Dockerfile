@@ -1,29 +1,14 @@
-# Use the Nvidia CUDA Quantum image built for the AMD64 platform as the base image
-FROM --platform=linux/amd64 ghcr.io/nvidia/cuda-quantum:latest
-
-# Update PATH environment variable
-ENV PATH=$PATH:/home/cudaq/.local/bin/
-
-# Make the workspace directory as the working directory
-WORKDIR /workspace/
-
-# Change to the root user
-USER root
-
-# Change the permissions of the /workspace/ directory
-RUN chmod 777 .
-
-# Change to the cudaq user
-USER cudaq
+# We start from a minimal Python 3.11 image
+FROM --platform=x86_64 python:3.11
 
 # Install Jupyter
-RUN pip install jupyter
+RUN pip install jupyter cuda-quantum
 
-# Add your main.ipynb file to the workspace/ directory of the container.
-COPY main.ipynb .
+# Copy the main.ipynb file into the container
+COPY main.ipynb /workspace/
 
-# When the container is run, start the Jupyter notebook server
-ENTRYPOINT ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--NotebookApp.token=''"]
+# Set the working directory
+WORKDIR /workspace
 
-# Expose the port the app runs in
-EXPOSE 8888
+# The command to run when the container starts
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--NotebookApp.token=''", "--allow-root"]
