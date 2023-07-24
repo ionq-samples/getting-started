@@ -1,9 +1,6 @@
 name: Test Notebooks
 
-on:
-  pull_request:
-    paths:
-    - '**.ipynb'
+on: [push, pull_request]:  
 
 jobs:
   test:
