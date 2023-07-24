@@ -1,5 +1,3 @@
-import os
-import nbformat
 import glob
 import subprocess
 
