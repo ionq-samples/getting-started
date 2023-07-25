@@ -20,6 +20,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Run Notebook Tests
-      run: python test_notebooks.py
+      run: python tests/test_notebooks.py
       env:
         IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
