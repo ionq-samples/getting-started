@@ -13,7 +13,7 @@ To set up, follow the instructions below:
     Use `export` to set the IonQ API key as an environment variable:
 
     ```shell
-    export IONQ_API_KEY=api_key_here # Windows: set IONQ_API_KEY=api_key_here
+    export IONQ_API_KEY=api_key_here  # Windows: set IONQ_API_KEY=api_key_here
     ```
 
 3. Install the required [Python libraries](requirements.txt).
