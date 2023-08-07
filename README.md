@@ -1,47 +1,42 @@
 # IonQ Quantum Computing Samples
 
-This repository contains Python samples exploring quantum computing on IonQ's platform using various quantum programming libraries. 
-
-- [Cirq](./cirq)
-- [CUDA Quantum](./cuda-quantum)
-- [cURL](./curl)
-- [PennyLane](./pennylane)
-- [ProjectQ](./projectq)
-- [Qiskit](./qiskit)
+This repository contains Python samples exploring quantum computing on IonQ's platform using various quantum programming libraries.
 
 ## Setup
 
 To set up, follow the instructions below:
 
-1. Make sure Python is installed on your machine.
-2. Obtain an IonQ API key [here](https://cloud.ionq.com/settings/keys).
-3. Install the necessary Python libraries from `requirements.txt`.
+1. Download and install [Python](https://www.python.org/downloads/).
 
-To install the libraries, run the following command in your terminal:
+2. Obtain an [IonQ API key](https://cloud.ionq.com/settings/keys).
 
-```shell
-pip install -r requirements.txt
-```
+    Use `export` to set the IonQ API key as an environment variable:
 
-To set the IonQ API key as an environment variable, use the following command:
+    ```shell
+    export IONQ_API_KEY=api_key_here # Windows: set IONQ_API_KEY=api_key_here
+    ```
 
-```shell
-export IONQ_API_KEY=your_api_key_here
-```
+3. Install the required [Python libraries](requirements.txt).
 
-## Running Notebooks
+    Run `pip` in your terminal to install the required libraries:
 
-The samples are in the form of Jupyter notebooks, and you can run them using either Google Colab or your local Jupyter notebook installation.
+    ```shell
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+The samples are in the form of Jupyter notebooks, and you can run them using either Google Colab or your local Jupyter installation.
 
 - For Google Colab, open the notebook by clicking on the ![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg) badge located in each subdirectory's `README.md`.
 
 - For Jupyter notebooks, use the following command to start a local Jupyter server:
 
-```shell
-jupyter notebook
-```
+    ```shell
+    jupyter notebook
+    ```
 
-Then, navigate to the location of a `.ipynb` file and open it.
+    Then, navigate to the location of a `.ipynb` file and open it.
 
 ## Support
 
