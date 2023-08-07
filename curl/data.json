@@ -1,0 +1,20 @@
+{
+    "shots": 100,
+    "target": "simulator",
+    "input": {
+        "format": "ionq.circuit.v0",
+        "gateset": "qis",
+        "qubits": 2,
+        "circuit": [
+            {
+                "gate": "h",
+                "target": 0
+            },
+            {
+                "gate": "cnot",
+                "control": 0,
+                "target": 1
+            }
+        ]
+    }
+}
