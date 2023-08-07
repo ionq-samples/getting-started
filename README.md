@@ -4,6 +4,7 @@ This repository contains Python samples exploring quantum computing on IonQ's pl
 
 - [Cirq](./cirq)
 - [CUDA Quantum](./cuda-quantum)
+- [cURL](./curl)
 - [PennyLane](./pennylane)
 - [ProjectQ](./projectq)
 - [Qiskit](./qiskit)
