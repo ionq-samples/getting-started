@@ -1,3 +1,75 @@
-.ipynb_checkpoints
-.DS_Store
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg
+*.egg-info
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+*.egg-info/
+.installed.cfg
+lib/
+lib64/
+*.egg
+*.egg-info/
+*.dist-info/
+wheels/
+share/python-wheels/
+
+# CPython file
+*.pyd
+*.pyo
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 main.html
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Windows folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Docker
+*.log
