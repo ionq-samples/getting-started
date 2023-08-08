@@ -9,6 +9,7 @@ cuda-quantum
 amazon-braket-sdk
 qsharp
 pytket
+pytket-ionq
 xacc
 matplotlib
 pylatexenc
