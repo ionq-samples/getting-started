@@ -1,10 +1,10 @@
-# cURL
+# API
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ionq-samples/getting-started/blob/main/curl/main.ipynb)
 
 ---
 
-Get your API key from <https://cloud.ionq.com/settings/keys>
+Get your API key from <https://cloud.ionq.com/settings/keys>.
 
 ## Submit a Job:
 
@@ -31,7 +31,7 @@ curl "https://api.ionq.co/v0.3/jobs/7cc8ce51-2e57-4140-96ce-cf8bada0bf91" \
 
 > {"noise":{"model":"ideal"},"status":"completed","children":[],"target":"simulator","predicted_execution_time":4,"execution_time":26,"id":"7cc8ce51-2e57-4140-96ce-cf8bada0bf91","qubits":2,"request":1691469978,"start":1691469979,"response":1691469979,"gate_counts":{"1q":1,"2q":1},"results_url":"/v0.3/jobs/7cc8ce51-2e57-4140-96ce-cf8bada0bf91/results"}
 
-When `status` becomes `submitted`, get the job results.
+When `status` becomes `completed`, get the job results.
 
 ## Get Job Results:
 
