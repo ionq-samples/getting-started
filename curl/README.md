@@ -7,6 +7,7 @@
 ## Submit a Job:
 
 ```shell
+# Get your API key from https://cloud.ionq.com/settings/keys
 curl -X POST "https://api.ionq.co/v0.3/jobs" \
   -A "curl/$(curl --version | awk 'NR==1 {print $2}')" \
   -H "Authorization: apiKey $IONQ_API_KEY" \
