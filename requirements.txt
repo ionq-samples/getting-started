@@ -6,6 +6,10 @@ pennylane
 pennylane-ionq
 projectq
 cuda-quantum
+amazon-braket-sdk
+qsharp
+pytket
+xacc
 matplotlib
 pylatexenc
 jupyter
