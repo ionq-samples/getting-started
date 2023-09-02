@@ -6,6 +6,8 @@ pennylane
 pennylane-ionq
 projectq
 cuda-quantum
+qutip
+qutip-qip
 matplotlib
 pylatexenc
 jupyter
