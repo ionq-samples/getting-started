@@ -8,6 +8,8 @@ To set up, follow the instructions below:
 
 1. Download and install [Python](https://www.python.org/downloads/).
 
+    > This project supports Python versions **3.7** to **3.11**.
+
 2. Set up a Virtual Environment:
 
     Run the following command to create a virtual environment (`ionq`):
