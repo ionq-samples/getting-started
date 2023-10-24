@@ -12,10 +12,10 @@ To set up, follow the instructions below:
 
 2. Set up a Virtual Environment:
 
-    Run the following command to create a virtual environment (`ionq`):
+    Run the following command to create a virtual environment:
 
     ```shell
-    virtualenv ionq
+    python3 -m venv ionq
     ```
 
     Activate the `ionq` virtual environment:
