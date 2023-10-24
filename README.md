@@ -10,13 +10,13 @@ To set up, follow the instructions below:
 
 2. Set up a Virtual Environment:
 
-    Run the following command to create a virtual environment:
+    Run the following command to create a virtual environment (`ionq`):
 
     ```shell
     virtualenv ionq
     ```
 
-    Activate the virtual environment:
+    Activate the `ionq` virtual environment:
 
     ```shell
     source ionq/bin/activate  # Windows: .\ionq\Scripts\activate
