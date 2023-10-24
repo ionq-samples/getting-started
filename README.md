@@ -8,7 +8,23 @@ To set up, follow the instructions below:
 
 1. Download and install [Python](https://www.python.org/downloads/).
 
-2. Obtain an [IonQ API key](https://cloud.ionq.com/settings/keys).
+    > This project supports Python versions **3.7** to **3.11**.
+
+2. Set up a Virtual Environment:
+
+    Run the following command to create a virtual environment:
+
+    ```shell
+    python3 -m venv ionq
+    ```
+
+    Activate the `ionq` virtual environment:
+
+    ```shell
+    source ionq/bin/activate  # Windows: .\ionq\Scripts\activate
+    ```
+
+3. Obtain an [IonQ API key](https://cloud.ionq.com/settings/keys).
 
     Use `export` to set the IonQ API key as an environment variable:
 
@@ -16,7 +32,7 @@ To set up, follow the instructions below:
     export IONQ_API_KEY=api_key_here  # Windows: set IONQ_API_KEY=api_key_here
     ```
 
-3. Install the required [Python libraries](requirements.txt).
+4. Install the required [Python libraries](requirements.txt).
 
     Run `pip` in your terminal to install the required libraries:
 
