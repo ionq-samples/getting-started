@@ -22,7 +22,7 @@ To set up, follow the instructions below:
     source ionq/bin/activate  # Windows: .\ionq\Scripts\activate
     ```
 
-2. Obtain an [IonQ API key](https://cloud.ionq.com/settings/keys).
+3. Obtain an [IonQ API key](https://cloud.ionq.com/settings/keys).
 
     Use `export` to set the IonQ API key as an environment variable:
 
@@ -30,7 +30,7 @@ To set up, follow the instructions below:
     export IONQ_API_KEY=api_key_here  # Windows: set IONQ_API_KEY=api_key_here
     ```
 
-3. Install the required [Python libraries](requirements.txt).
+4. Install the required [Python libraries](requirements.txt).
 
     Run `pip` in your terminal to install the required libraries:
 
