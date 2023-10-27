@@ -1,58 +1,47 @@
 # IonQ Quantum Computing Samples
 
-This repository contains Python samples exploring quantum computing on IonQ's platform using various quantum programming libraries.
+This repository contains Python samples exploring quantum computing on IonQ's platform using various quantum programming libraries. These examples are a great place to start if you're interested in quantum computation, but aren't familiar with any of the libraries out there.
 
-## Setup
+If you're looking for advanced and in-depth examples for a given library that implement a specific algorithm, check out some of the other projects in the [ionq-samples](https://github.com/ionq-samples) organization on GitHub.
 
-To set up, follow the instructions below:
+----
 
-1. Download and install [Python](https://www.python.org/downloads/).
+## Prerequisites
 
-    > This project supports Python versions **3.7** to **3.11**.
+There are a wide variety of ways to run these notebooks, but for starters you'll need:
 
-2. Set up a Virtual Environment:
+1. [Python](https://www.python.org/downloads/) installed, using a version between 3.8 and 3.11.
+1. A [virtual environment](https://docs.python.org/3/library/venv.html) to help ensure your dependencies don't conflict with anything else you have installed.
+1. An [IonQ API key](https://cloud.ionq.com/settings/keys), which optionally you can store as an environment variable for ease of use. Our notebooks expect to find it stored as `IONQ_API_KEY`.
+1. An installation of the library you're wanting to run. To install all the libraries at once, run `pip install -r requirements.txt` from the root directory of this repository.
 
-    Run the following command to create a virtual environment:
-
-    ```shell
-    python3 -m venv ionq
-    ```
-
-    Activate the `ionq` virtual environment:
-
-    ```shell
-    source ionq/bin/activate  # Windows: .\ionq\Scripts\activate
-    ```
-
-3. Obtain an [IonQ API key](https://cloud.ionq.com/settings/keys).
-
-    Use `export` to set the IonQ API key as an environment variable:
-
-    ```shell
-    export IONQ_API_KEY=api_key_here  # Windows: set IONQ_API_KEY=api_key_here
-    ```
-
-4. Install the required [Python libraries](requirements.txt).
-
-    Run `pip` in your terminal to install the required libraries:
-
-    ```shell
-    pip install -r requirements.txt
-    ```
+----
 
 ## Usage
 
-The samples are in the form of Jupyter notebooks, and you can run them using either Google Colab or your local Jupyter installation.
+The samples are in the form of Jupyter notebooks, and you can view and run them using a local [Jupyter](http://jupyter.org/) installation, [VS Code](https://code.visualstudio.com/) (using the built-in Jupyter plugin), or [Google Colab](https://colab.research.google.com).
 
-- For Google Colab, open the notebook by clicking on the ![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg) badge located in each subdirectory's `README.md`.
+If you're unfamiliar with Jupyter but you're used to a traditional IDE or code editor, VS Code is probably the right choice for you.
 
-- For Jupyter notebooks, use the following command to start a local Jupyter server:
+#### Jupyter Notebooks
+
+1. From your terminal, navigate to this repository and run the following command from within this directory:
 
     ```shell
     jupyter notebook
     ```
+1. Once the server is started, it should automatically open your browser. In case it doesn't, you can navigate directly to it by pointing your browser at [http://localhost:8888](http://localhost:8888)
+1. Navigate to the location of a `.ipynb` file and open it. If you don't have a particular SDK in mind, we recommend starting with `qiskit`, as its the most commonly used library today.
 
-    Then, navigate to the location of a `.ipynb` file and open it.
+#### VS Code
+1. Open the folder in VS Code and navigate to a `.ipynb` file and open it.
+1. If it's your first time using it, it will suggest a number of plugins that you may need to install before the notebook will be fully functional.
+1. At the top-right of the screen, click on `Select Kernel` and choose an appropriate Python runtime to run the notebook in.
+
+#### Cloud
+1. Open the notebook by clicking on the ![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg) badge located in each notebook. Or open this repository in [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ionq-samples/getting-started/HEAD)
+
+----
 
 ## Support
 
