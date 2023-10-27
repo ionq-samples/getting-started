@@ -38,8 +38,8 @@ If you're unfamiliar with Jupyter but you're used to a traditional IDE or code e
 1. If it's your first time using it, it will suggest a number of plugins that you may need to install before the notebook will be fully functional.
 1. At the top-right of the screen, click on `Select Kernel` and choose an appropriate Python runtime to run the notebook in.
 
-#### Google Colab
-1. Open the notebook by clicking on the ![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg) badge located in each subdirectory's `README.md`.
+#### Cloud
+1. Open the notebook by clicking on the ![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg) badge located in each notebook. Or open this repository in [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ionq-samples/getting-started/HEAD)
 
 ----
 
