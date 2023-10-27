@@ -16,7 +16,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install --ignore-requires-python -r requirements.txt
 
     - name: Run notebook tests
       run: python tests/test_notebooks.py
