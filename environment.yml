@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.11
+  - pip
   - matplotlib
   - jupyter
   # Add other dependencies here, for Conda packages.
