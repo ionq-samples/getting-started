@@ -6,19 +6,26 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-    - name: Check out code
-      uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: test-env
+          environment-file: environment.yml
+          python-version: "3.11"
+          auto-activate-base: false
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          conda env create -f environment.yml
+          conda activate test-env
+          while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
 
-    - name: Run notebook tests
-      run: python tests/test_notebooks.py
-      env:
-        IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
+      - name: Run notebook tests
+        run: |
+          conda activate test-env
+          python tests/test_notebooks.py
+        env:
+          IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
