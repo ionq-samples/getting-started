@@ -1,24 +1,43 @@
 name: Test Notebooks
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: myenv
+          environment-file: environment.yml
+          python-version: "3.11"
+          auto-activate-base: false
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Prepare Conda environment
+        shell: bash -l {0}
+        run: |
+          if conda env list | grep -q 'myenv'; then
+            echo "Environment 'myenv' already exists, updating environment"
+            conda env update --name myenv --file environment.yml --prune
+          else
+            echo "Creating new environment 'myenv'"
+            conda env create -f environment.yml
+          fi
 
-    - name: Run notebook tests
-      run: python tests/test_notebooks.py
-      env:
-        IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
+      - name: Run notebook tests
+        shell: bash -l {0}
+        run: |
+          conda activate myenv
+          python tests/test_notebooks.py
+        env:
+          IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
