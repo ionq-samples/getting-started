@@ -1,33 +1,24 @@
 name: Test Notebooks
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: push
 
 jobs:
   test:
     runs-on: ubuntu-22.04
-
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11"]
-
     steps:
-      - uses: actions/checkout@v4
+    - name: Check out code
+      uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install --no-dependencies -r requirements.txt
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
-      - name: Run notebook tests
-        run: python tests/test_notebooks.py
-        env:
-          IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
+    - name: Run notebook tests
+      run: python tests/test_notebooks.py
+      env:
+        IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
