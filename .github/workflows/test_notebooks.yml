@@ -23,6 +23,11 @@ jobs:
           python-version: "3.11"
           auto-activate-base: false
 
+      - name: Remove existing environment (if exists)
+        shell: bash -l {0}
+        run: |
+          conda env remove --name myenv || true
+
       - name: Install dependencies and run tests
         shell: bash -l {0}
         run: |
