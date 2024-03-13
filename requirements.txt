@@ -9,3 +9,4 @@ cuda-quantum
 matplotlib
 pylatexenc
 jupyter
+requirements
