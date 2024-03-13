@@ -28,6 +28,7 @@ share/python-wheels/
 # Distribution / packaging
 .Python
 env/
+venv/
 ionq/
 build/
 develop-eggs/
