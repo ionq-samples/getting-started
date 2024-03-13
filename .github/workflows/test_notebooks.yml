@@ -23,15 +23,20 @@ jobs:
           python-version: "3.11"
           auto-activate-base: false
 
-      - name: Remove existing environment (if exists)
+      - name: Prepare Conda environment
         shell: bash -l {0}
         run: |
-          conda remove --name myenv --all --yes || true
+          if conda env list | grep -q 'myenv'; then
+            echo "Environment 'myenv' already exists, updating environment"
+            conda env update --name myenv --file environment.yml --prune
+          else
+            echo "Creating new environment 'myenv'"
+            conda env create -f environment.yml
+          fi
 
-      - name: Install dependencies and run tests
+      - name: Run notebook tests
         shell: bash -l {0}
         run: |
-          conda env create -f environment.yml
           conda activate myenv
           python tests/test_notebooks.py
         env:
