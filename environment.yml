@@ -1,0 +1,21 @@
+name: myenv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - matplotlib
+  - jupyter
+  # Add other dependencies here, for Conda packages.
+  - pip:
+      # Pip-only packages here, if any.
+      - qiskit
+      - qiskit-ionq
+      - cirq
+      - cirq-ionq
+      - pennylane
+      - pennylane-ionq
+      - projectq
+      - cuda-quantum
+      - pylatexenc
+      - requests
