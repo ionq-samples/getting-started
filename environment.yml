@@ -17,6 +17,7 @@ dependencies:
       - pennylane
       - pennylane-ionq
       - projectq
+      - qbraid[runtime]
       - cuda-quantum
       - pylatexenc
       - requests
