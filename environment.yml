@@ -17,6 +17,6 @@ dependencies:
       - pennylane
       - pennylane-ionq
       - projectq
-      - cuda-quantum
+      - cudaq
       - pylatexenc
       - requests
