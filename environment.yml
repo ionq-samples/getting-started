@@ -5,12 +5,13 @@ channels:
 dependencies:
   - python=3.11
   - pip
-  - matplotlib
   - jupyter
+  - pytest
+  - nbconvert
   # Add other dependencies here, for Conda packages.
   - pip:
       # Pip-only packages here, if any.
-      - qiskit
+      - qiskit[visualization]
       - qiskit-ionq
       - cirq
       - cirq-ionq
@@ -20,3 +21,4 @@ dependencies:
       - cudaq
       - pylatexenc
       - requests
+      - ipykernel

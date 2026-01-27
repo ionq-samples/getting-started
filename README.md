@@ -13,10 +13,30 @@ There are a wide variety of ways to run these notebooks, but for starters you'll
 1. [Python](https://www.python.org/downloads/) installed, using a version between 3.8 and 3.11.
 2. A [virtual environment](https://docs.python.org/3/library/venv.html) to help ensure your dependencies don't conflict with anything else you have installed.
 3. An [IonQ API key](https://cloud.ionq.com/settings/keys), which optionally you can store as an environment variable for ease of use. Our notebooks expect to find it stored as `IONQ_API_KEY`.
-4. An installation of the library you're wanting to run. To install all the libraries at once using Conda, run the following command from the root directory of this repository:
+4. An installation of the library you're wanting to run. You can install all libraries using one of the following methods:
+
+   **Option 1: Using uv (Fastest - Recommended)**
+
+   [uv](https://github.com/astral-sh/uv) is an extremely fast Python package installer and resolver:
+
+   ```shell
+   # Install uv (if not already installed)
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+
+   # Install all dependencies
+   uv pip install -e .
+   ```
+
+   **Option 2: Using Conda**
 
    ```shell
    conda env create -f environment.yml
+   ```
+
+   **Option 3: Using pip**
+
+   ```shell
+   pip install -e .
    ```
 
 ---
