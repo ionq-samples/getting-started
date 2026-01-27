@@ -6,6 +6,8 @@ dependencies:
   - python=3.11
   - pip
   - jupyter
+  - pytest
+  - nbconvert
   # Add other dependencies here, for Conda packages.
   - pip:
       # Pip-only packages here, if any.

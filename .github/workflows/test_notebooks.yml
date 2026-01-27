@@ -26,18 +26,61 @@ jobs:
       - name: Prepare Conda environment
         shell: bash -l {0}
         run: |
+          echo "=================================================="
+          echo "Preparing Conda environment"
+          echo "=================================================="
           if conda env list | grep -q 'myenv'; then
-            echo "Environment 'myenv' already exists, updating environment"
+            echo "✓ Environment 'myenv' already exists, updating environment"
             conda env update --name myenv --file environment.yml --prune
           else
-            echo "Creating new environment 'myenv'"
+            echo "✓ Creating new environment 'myenv'"
             conda env create -f environment.yml
           fi
+          echo "✓ Conda environment ready"
+
+      - name: Verify environment
+        shell: bash -l {0}
+        run: |
+          echo "=================================================="
+          echo "Verifying environment setup"
+          echo "=================================================="
+          conda activate myenv
+          echo "✓ Python version:"
+          python --version
+          echo ""
+          echo "✓ Installed packages:"
+          conda list | grep -E "(jupyter|qiskit|cirq|pennylane|qbraid|requests)"
+          echo ""
+          echo "✓ IONQ_API_KEY status:"
+          if [ -n "$IONQ_API_KEY" ]; then
+            echo "  API key is set (length: ${#IONQ_API_KEY} characters)"
+          else
+            echo "  WARNING: API key is not set!"
+          fi
+        env:
+          IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
 
       - name: Run notebook tests
         shell: bash -l {0}
         run: |
+          echo "=================================================="
+          echo "Running notebook tests"
+          echo "=================================================="
           conda activate myenv
           python tests/test_notebooks.py
         env:
           IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
+          NBEXEC_TIMEOUT_SECONDS: 600
+
+      - name: Test summary
+        if: always()
+        shell: bash -l {0}
+        run: |
+          echo "=================================================="
+          echo "Test Execution Summary"
+          echo "=================================================="
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "✓ All notebook tests passed successfully!"
+          else
+            echo "✗ Some tests failed. Check logs above for details."
+          fi
