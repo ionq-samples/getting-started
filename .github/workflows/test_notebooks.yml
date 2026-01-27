@@ -24,7 +24,7 @@ jobs:
           echo "=================================================="
           echo "Discovering notebooks"
           echo "=================================================="
-          notebooks=$(find . -name "*.ipynb" -type f | jq -R -s -c 'split("\n")[:-1]')
+          notebooks=$(find . -name "*.ipynb" -type f -not -path "*/venv/*" | jq -R -s -c 'split("\n")[:-1]')
           echo "Found notebooks:"
           echo "$notebooks" | jq -r '.[]'
           echo "notebooks=$notebooks" >> $GITHUB_OUTPUT
@@ -41,41 +41,43 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Set up Conda
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
         with:
-          activate-environment: myenv
-          environment-file: environment.yml
-          python-version: "3.11"
-          auto-activate-base: false
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
 
-      - name: Prepare Conda environment
-        shell: bash -l {0}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies with uv
         run: |
           echo "=================================================="
-          echo "Preparing Conda environment for ${{ matrix.notebook }}"
+          echo "Installing dependencies for ${{ matrix.notebook }}"
           echo "=================================================="
-          if conda env list | grep -q 'myenv'; then
-            echo "✓ Environment 'myenv' already exists, updating environment"
-            conda env update --name myenv --file environment.yml --prune
-          else
-            echo "✓ Creating new environment 'myenv'"
-            conda env create -f environment.yml
-          fi
-          echo "✓ Conda environment ready"
+          start_time=$(date +%s)
+
+          uv pip install --system -e .
+
+          end_time=$(date +%s)
+          elapsed=$((end_time - start_time))
+          echo "✓ Dependencies installed in ${elapsed}s"
 
       - name: Verify environment
-        shell: bash -l {0}
         run: |
           echo "=================================================="
           echo "Verifying environment setup"
           echo "=================================================="
-          conda activate myenv
           echo "✓ Python version:"
           python --version
           echo ""
+          echo "✓ uv version:"
+          uv --version
+          echo ""
           echo "✓ Installed packages:"
-          conda list | grep -E "(jupyter|qiskit|cirq|pennylane|qbraid|requests)" || echo "  (packages not shown)"
+          uv pip list | grep -E "(jupyter|qiskit|cirq|pennylane|qbraid|cudaq)" || echo "  (packages installed)"
           echo ""
           echo "✓ IONQ_API_KEY status:"
           if [ -n "$IONQ_API_KEY" ]; then
@@ -87,13 +89,11 @@ jobs:
           IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
 
       - name: Execute notebook
-        shell: bash -l {0}
         run: |
           echo "=================================================="
           echo "Executing: ${{ matrix.notebook }}"
           echo "Timeout: 600s"
           echo "=================================================="
-          conda activate myenv
           start_time=$(date +%s)
           echo "Starting execution at $(date '+%Y-%m-%d %H:%M:%S')"
 
