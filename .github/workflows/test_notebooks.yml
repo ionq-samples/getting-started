@@ -9,8 +9,34 @@ on:
       - main
 
 jobs:
-  test:
+  discover:
+    name: Discover notebooks
     runs-on: ubuntu-22.04
+    outputs:
+      notebooks: ${{ steps.find-notebooks.outputs.notebooks }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Find all notebooks
+        id: find-notebooks
+        run: |
+          echo "=================================================="
+          echo "Discovering notebooks"
+          echo "=================================================="
+          notebooks=$(find . -name "*.ipynb" -type f | jq -R -s -c 'split("\n")[:-1]')
+          echo "Found notebooks:"
+          echo "$notebooks" | jq -r '.[]'
+          echo "notebooks=$notebooks" >> $GITHUB_OUTPUT
+
+  test:
+    name: Test ${{ matrix.notebook }}
+    needs: discover
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        notebook: ${{ fromJson(needs.discover.outputs.notebooks) }}
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -27,7 +53,7 @@ jobs:
         shell: bash -l {0}
         run: |
           echo "=================================================="
-          echo "Preparing Conda environment"
+          echo "Preparing Conda environment for ${{ matrix.notebook }}"
           echo "=================================================="
           if conda env list | grep -q 'myenv'; then
             echo "✓ Environment 'myenv' already exists, updating environment"
@@ -49,7 +75,7 @@ jobs:
           python --version
           echo ""
           echo "✓ Installed packages:"
-          conda list | grep -E "(jupyter|qiskit|cirq|pennylane|qbraid|requests)"
+          conda list | grep -E "(jupyter|qiskit|cirq|pennylane|qbraid|requests)" || echo "  (packages not shown)"
           echo ""
           echo "✓ IONQ_API_KEY status:"
           if [ -n "$IONQ_API_KEY" ]; then
@@ -60,27 +86,60 @@ jobs:
         env:
           IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
 
-      - name: Run notebook tests
+      - name: Execute notebook
         shell: bash -l {0}
         run: |
           echo "=================================================="
-          echo "Running notebook tests"
+          echo "Executing: ${{ matrix.notebook }}"
+          echo "Timeout: 600s"
           echo "=================================================="
           conda activate myenv
-          python tests/test_notebooks.py
+          start_time=$(date +%s)
+          echo "Starting execution at $(date '+%Y-%m-%d %H:%M:%S')"
+
+          python -m jupyter nbconvert \
+            --to html \
+            --execute \
+            --ExecutePreprocessor.timeout=600 \
+            "${{ matrix.notebook }}"
+
+          exit_code=$?
+          end_time=$(date +%s)
+          elapsed=$((end_time - start_time))
+
+          if [ $exit_code -eq 0 ]; then
+            echo "✓ PASSED in ${elapsed}s"
+            echo "Completed at $(date '+%Y-%m-%d %H:%M:%S')"
+          else
+            echo "✗ FAILED after ${elapsed}s"
+            exit $exit_code
+          fi
         env:
           IONQ_API_KEY: ${{ secrets.IONQ_API_KEY }}
-          NBEXEC_TIMEOUT_SECONDS: 600
 
-      - name: Test summary
+      - name: Upload execution artifacts
         if: always()
-        shell: bash -l {0}
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-output-${{ hashFiles(matrix.notebook) }}
+          path: |
+            **/*.html
+          retention-days: 7
+
+  summary:
+    name: Test Summary
+    needs: test
+    runs-on: ubuntu-22.04
+    if: always()
+    steps:
+      - name: Summary
         run: |
           echo "=================================================="
-          echo "Test Execution Summary"
+          echo "Test Execution Complete"
           echo "=================================================="
-          if [ ${{ job.status }} == 'success' ]; then
+          if [ "${{ needs.test.result }}" == "success" ]; then
             echo "✓ All notebook tests passed successfully!"
           else
-            echo "✗ Some tests failed. Check logs above for details."
+            echo "✗ Some tests failed. Check individual job logs for details."
+            exit 1
           fi
