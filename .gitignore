@@ -29,6 +29,7 @@ share/python-wheels/
 .Python
 env/
 venv/
+.venv/
 ionq/
 build/
 develop-eggs/

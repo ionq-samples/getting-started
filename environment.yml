@@ -5,18 +5,16 @@ channels:
 dependencies:
   - python=3.11
   - pip
-  - matplotlib
   - jupyter
   # Add other dependencies here, for Conda packages.
   - pip:
       # Pip-only packages here, if any.
-      - qiskit
+      - qiskit[visualization]
       - qiskit-ionq
       - cirq
       - cirq-ionq
       - pennylane
       - pennylane-ionq
-      - projectq
-      - cuda-quantum
-      - pylatexenc
+      # - cudaq
       - requests
+      - ipykernel
