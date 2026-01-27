@@ -10,7 +10,7 @@ If you're looking for advanced and in-depth examples for a given library that im
 
 There are a wide variety of ways to run these notebooks, but for starters you'll need:
 
-1. [Python](https://www.python.org/downloads/) installed, using a version between 3.10 and 3.14.
+1. [Python](https://www.python.org/downloads/) installed, using a version between 3.10 and 3.13.
 2. A [virtual environment](https://docs.python.org/3/library/venv.html) to help ensure your dependencies don't conflict with anything else you have installed.
 3. An [IonQ API key](https://cloud.ionq.com/settings/keys), which optionally you can store as an environment variable for ease of use. Our notebooks expect to find it stored as `IONQ_API_KEY`.
 4. An installation of the library you're wanting to run. You can install all libraries using one of the following methods:
