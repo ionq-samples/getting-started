@@ -41,6 +41,28 @@ There are a wide variety of ways to run these notebooks, but for starters you'll
 
 ---
 
+## Docker
+
+For a reproducible environment with all dependencies pre-installed:
+
+```shell
+# Build the image (linux/x86_64 required for cudaq)
+docker build --platform=linux/x86_64 -t ionq-notebooks .
+
+# Run with your API key
+docker run -p 8888:8888 -e IONQ_API_KEY="your_api_key_here" ionq-notebooks
+```
+
+Then open your browser to [http://localhost:8888](http://localhost:8888)
+
+To persist notebook changes, mount the workspace as a volume:
+
+```shell
+docker run -p 8888:8888 -e IONQ_API_KEY="your_api_key_here" -v $(pwd):/workspace ionq-notebooks
+```
+
+---
+
 ## Usage
 
 The samples are in the form of Jupyter notebooks, and you can view and run them using a local [Jupyter](http://jupyter.org/) installation, [VS Code](https://code.visualstudio.com/) (using the built-in Jupyter plugin), or [Google Colab](https://colab.research.google.com).
