@@ -84,6 +84,20 @@ GitHub Actions automatically tests all notebooks on every push.
 
 ---
 
+## Git Hooks
+
+This repository includes a _`pre-commit` Git hook_ to automatically clean Jupyter notebook metadata using `nb-clean` before committing. This helps reduce unnecessary noise in commits and avoid merge conflicts.
+
+To enable this, run the following command in your terminal from the root of this repository:
+
+```shell
+git config core.hooksPath .githooks
+```
+
+**Note:** If `uv` is not installed, the hook will issue a warning and skip the cleaning process.
+
+---
+
 ## Support
 
 Submit issues or PRs in this repository, or contact [support@ionq.com](mailto:support@ionq.com?subject=SDK%20help).

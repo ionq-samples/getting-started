@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# This pre-commit hook cleans Jupyter notebooks before they are committed.
+# It uses nb-clean to remove unnecessary metadata, which helps to reduce
+# noise in commits and avoid merge conflicts.
+
+# Check if uv is installed. If not, warn the user and exit gracefully.
+if ! command -v uv >/dev/null 2>&1; then
+    echo "-----------------------------------------------------------------"
+    echo "Warning: 'uv' is not installed, so notebooks will not be cleaned."
+    echo "For cleaner commits, please install uv:"
+    echo "https://astral.sh/uv"
+    echo "-----------------------------------------------------------------"
+    exit 0
+fi
+
+# Get a list of staged .ipynb files.
+STAGED_NOTEBOOKS=$(git diff --cached --name-only --diff-filter=AM -- "*.ipynb")
+
+if [ -z "$STAGED_NOTEBOOKS" ]; then
+    exit 0
+fi
+
+echo "Cleaning staged notebooks..."
+
+# Loop through the staged notebooks and clean them.
+for notebook in $STAGED_NOTEBOOKS; do
+    echo "  - $notebook"
+    uvx nb-clean clean --remove-all-notebook-metadata "$notebook"
+    git add "$notebook"
+done
+
+echo "Notebook cleaning complete."
