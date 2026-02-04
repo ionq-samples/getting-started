@@ -15,7 +15,7 @@ if ! command -v uv >/dev/null 2>&1; then
 fi
 
 # Get a list of staged .ipynb files.
-STAGED_NOTEBOOKS=$(git diff --cached --name-only --filter=ACM -- "*.ipynb")
+STAGED_NOTEBOOKS=$(git diff --cached --name-only --diff-filter=AM -- "*.ipynb")
 
 if [ -z "$STAGED_NOTEBOOKS" ]; then
     exit 0
