@@ -3,7 +3,7 @@ name = "ionq-getting-started"
 version = "1.0.0"
 description = "IonQ Quantum Computing Samples - Getting started with various quantum SDKs"
 readme = "README.md"
-requires-python = ">=3.8,<3.12"
+requires-python = ">=3.10,<3.14"
 license = { text = "Apache-2.0" }
 
 dependencies = [
@@ -32,8 +32,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0.0",
-    "nbconvert>=7.0.0",
+    "pytest-xdist>=3.0.0",  # For parallel test execution
 ]
 
 [build-system]
