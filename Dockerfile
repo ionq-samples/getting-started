@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM --platform=linux/amd64 python:3.12-slim
 
 WORKDIR /workspace
 
@@ -14,8 +14,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 # Copy project files
 COPY . .
 
-# Install dependencies
-RUN uv pip install --system -e .
+# Install dependencies (dynamic deps need pip)
+RUN uv pip install --system . && pip install cudaq
 
 EXPOSE 8888
 

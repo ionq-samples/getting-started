@@ -26,11 +26,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv pip install -e .
 ```
 
-**Using conda:**
-```bash
-conda env create -f environment.yml
-```
-
 ### Running Notebooks
 
 **Jupyter:**
